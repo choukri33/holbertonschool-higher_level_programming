@@ -1,92 +1,94 @@
-doctest for 7-base_geometry.py
-==============================
+---------------------
+Tests for base_geometry
+---------------------
 
+Importing module
 >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
+Valid output
+------------
+
+Value is positive
 >>> bg = BaseGeometry()
+>>> bg.integer_validator("name", 5)
 
+Invalid value outputs
+----------------------
 
-Test type
-    >>> type(bg)
-    <class '7-base_geometry.BaseGeometry'>
-
-Test instanciation
-    >>> print(bg.__dict__)
-    {}
-
-Test area
-    >>> bg = BaseGeometry()
-    >>> bg.area()
-    Traceback (most recent call last):
-    Exception: area() is not implemented
-
-Test integer_validator with no int :
-
-	>>> bg.integer_validator("x", 4.7)
-	Traceback (most recent call last):
-	TypeError: x must be an integer
-
-	>>> bg.integer_validator("x", "Holberton")
-	Traceback (most recent call last):
-	TypeError: x must be an integer
-
-	>>> bg.integer_validator("x", [4, 7])
-	Traceback (most recent call last):
-	TypeError: x must be an integer
-
-    >>> bg.integer_validator("x", True)
-    Traceback (most recent call last):
-        ...
-    TypeError: x must be an integer
-
-Test with negative int
->>> bg.integer_validator("x", -4)
+Value is a string
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("name", "John")
 Traceback (most recent call last):
-      File "/usr/lib/python3.10/doctest.py", line 1350, in __run
-        exec(compile(example.source, filename, "single",))
-      File "<doctest 7-base_geometry.txt[10]>", line 1, in <module>
-        bg.integer_validator("x", -4)
-      File "/home/mamuche/holbertonschool-higher_level_programming/python-inheritance/7-base_geometry.py", line 16, in integer_validator
-        raise ValueError("{} must be greater than 0".format(name))
-ValueError: x must be greater than 0
+TypeError: name must be an integer
 
-Test with value 0
->>> bg.integer_validator("x", 0)
+Value is a list
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("name", [1,2,3])
 Traceback (most recent call last):
-      File "/usr/lib/python3.10/doctest.py", line 1350, in __run
-        exec(compile(example.source, filename, "single",))
-      File "<doctest 7-base_geometry.txt[11]>", line 1, in <module>
-        bg.integer_validator("x", 0)
-      File "/home/mamuche/holbertonschool-higher_level_programming/python-inheritance/7-base_geometry.py", line 16, in integer_validator
-        raise ValueError("{} must be greater than 0".format(name))
-ValueError: x must be greater than 0
+TypeError: name must be an integer
 
-Test without args
+Value is a tuple
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("name", (1,2))
+Traceback (most recent call last):
+TypeError: name must be an integer
+
+Value is a dictionnary
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("name", {1, 2})
+Traceback (most recent call last):
+TypeError: name must be an integer
+
+Value is a boolean
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("name", True)
+Traceback (most recent call last):
+TypeError: name must be an integer
+
+Value is equal to 0
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("age", 0)
+Traceback (most recent call last):
+ValueError: age must be greater than 0
+
+Value is less than 0
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("distance", -4)
+Traceback (most recent call last):
+ValueError: distance must be greater than 0
+
+Value is None
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("name", None)
+Traceback (most recent call last):
+TypeError: name must be an integer
+
+Arguments errors
+----------------
+
+Passing one argument
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("name")
+Traceback (most recent call last):
+TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+Passing no argument
 >>> bg = BaseGeometry()
 >>> bg.integer_validator()
 Traceback (most recent call last):
-      File "/usr/lib/python3.10/doctest.py", line 1350, in __run
-        exec(compile(example.source, filename, "single",))
-      File "<doctest 7-base_geometry.txt[13]>", line 1, in <module>
-        bg.integer_validator()
-TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
+TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
 
-Test with 1 arg
+Passing three arguments
 >>> bg = BaseGeometry()
->>> bg.integer_validator("hi")
+>>> bg.integer_validator("name", 1, 2)
 Traceback (most recent call last):
-      File "/usr/lib/python3.10/doctest.py", line 1350, in __run
-        exec(compile(example.source, filename, "single",))
-      File "<doctest 7-base_geometry.txt[15]>", line 1, in <module>
-        bg.integer_validator("hi")
-TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
+TypeError: integer_validator() takes 3 positional arguments but 4 were given
 
-Test with 3 args
+Methods
+-------
+
+Print the area
 >>> bg = BaseGeometry()
->>> bg.integer_validator("hi", 5, True)
+>>> bg.area()
 Traceback (most recent call last):
-      File "/usr/lib/python3.10/doctest.py", line 1350, in __run
-        exec(compile(example.source, filename, "single",))
-      File "<doctest 7-base_geometry.txt[17]>", line 1, in <module>
-        bg.integer_validator("hi", 5, True)
-TypeError: BaseGeometry.integer_validator() takes 3 positional arguments but 4 were given
+Exception: area() is not implemented
