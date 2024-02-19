@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 doctest for 1-my_list.py
 ==============================
 
@@ -108,4 +107,3 @@ Output with positive and negative ints
 [-4, -2, 1, 3, 5]
 >>> print(my_list)
 [-4, -2, 1, 3, 5]
->>>>>>> 9123783ded1be5aa75fafffef9d3c714ca7a058e
