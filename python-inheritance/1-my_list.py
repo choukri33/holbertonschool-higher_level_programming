@@ -1,5 +1,9 @@
 #!/usr/bin/python
+"""create class Mylist"""
+
+
 class MyList(list):
+    """class from list"""
     def print_sorted(self):
-        self.sort()
-        print(self)
+        """print sorted list"""
+        print(sorted(self))
