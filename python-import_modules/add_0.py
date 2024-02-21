@@ -10,8 +10,3 @@ def add(a, b):
         The return value. a + b
     """
     return (a + b)
-
-guillaume@ubuntu:~/$ ./0-add.py
-1 + 2 = 3
-guillaume@ubuntu:~/$ cat 0-import_add.py
-__import__("0-add")
