@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 def safe_print_modulo(a, b):
     try:
-        div = a % b
+        div = a / b
     except (TypeError, ZeroDivisionError):
         div = None
     finally:
