@@ -1,6 +1,10 @@
+#!/usr/bin/python3
+
+"""Module that defines a rectangle class."""
+
 class Rectangle:
-    """Class that defines a rectangle by width and height."""
-    
+    """A class that defines a rectangle by its width and height."""
+
     def __init__(self, width=0, height=0):
         """Initialize the rectangle with optional width and height.
         
@@ -13,7 +17,7 @@ class Rectangle:
 
     @property
     def width(self):
-        """Retrieve the width of the rectangle."""
+        """Get the width of the rectangle."""
         return self.__width
 
     @width.setter
@@ -35,7 +39,7 @@ class Rectangle:
 
     @property
     def height(self):
-        """Retrieve the height of the rectangle."""
+        """Get the height of the rectangle."""
         return self.__height
 
     @height.setter
@@ -72,4 +76,3 @@ class Rectangle:
         if self.__width == 0 or self.__height == 0:
             return 0
         return 2 * (self.__width + self.__height)
-
