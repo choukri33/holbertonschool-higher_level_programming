@@ -8,4 +8,4 @@ def write_file(filename="", text=""):
         """Write string and count characters"""
 
         chars_written = f.write(text)
-        return chars_written
+        return len(text)
