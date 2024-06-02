@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 """Function to generate Pascal's triangle"""
 
+
 def pascal_triangle(n):
     """
-    Returns a list of lists of integers representing
-    Pascal's triangle of n.
+    Returns a list of lists of integers representing Pascal's triangle of n.
 
     Args:
         n (int): The number of levels in Pascal's triangle.
