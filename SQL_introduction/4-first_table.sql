@@ -1,5 +1,5 @@
--- This script creates a table named first_table with columns id and name, if it does not already exist
-$CREATE TABLE IF NOT EXIST first_table (
-    ID INT,
-    NAME VARCHAR(256)
+-- script that creates a table called first_table in the current database
+CREATE TABLE IF NOT EXISTS `first_table` (
+	`id` INT,
+	`name` VARCHAR(256)
 );
