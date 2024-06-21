@@ -1,11 +1,11 @@
 #!/usr/bin/python3
-"""script that lists all states from the database """
+"""Script that retrieves all states from the database"""
 import sys
 import MySQLdb as db
 
 def connect_and_query() -> None:
 
-    """Connect to the database and execute query"""
+    """Establish connection to the database and execute the query."""
     try:
         cnx = db.connect(user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
         cursor = cnx.cursor(cursorclass=db.cursors.Cursor)
